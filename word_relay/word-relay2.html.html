@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿵쿵따</title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    /* 쿵쿵따 혼자 만들어 보기
+    1.prompt 입력 받아서 몇명 참가하는지 저장.
+    2-1. 제시어가 비어있으면 input값을 버튼클릭했을때 제시어에 넣는다. input 초기화. 다음사람차례로
+    2-2. 제시어가 있으면 input값의 앞자리와 제시어의 끝자리 비교. 맞으면 제시어에 넣고 다음사람. input 초기화.
+         틀리면 다시. input 초기화.
+
+    
+    */
+    window.onload = function () {
+
+      const gamePlayer = prompt("참가자 수는 몇명입니까?");
+      //console.log('참가자수 : ' + gamePlayer);
+      let order = document.querySelector('#order');
+      let word = document.querySelector('#word');
+      let wordText = word.textContent;
+      let inputBtn = document.querySelector('#inputBtn');
+      let $input = document.querySelector('input');
+      let reStart = document.querySelector('.restart');
+      $input.addEventListener('input', function (e) { //input 압력값
+        inputValue = e.target.value;
+        //console.log(inputValue);
+      });
+      $input.focus(); //화면 로딩 input.focus
+      //console.log(wordText);
+
+      let pgGame = () => {
+        location.reload();
+      };
+
+      reStart.addEventListener('click',pgGame);
+      document.querySelector('.load-page').addEventListener('click', pgGame);
+      let pgStart = () => {
+        document.querySelector('.end').style.display = 'block';
+        document.querySelector('.start').style.display = 'none';
+        return false;
+      };
+
+      let idiot = () => {
+        document.querySelector('.idiot #idiot').textContent = order.textContent;
+        document.querySelector('.idiot').style.display = 'block';
+        document.querySelector('.start').style.display = 'none';
+
+      }
+
+      if(gamePlayer == null) {
+        pgStart();
+      }
+
+      inputBtn.addEventListener('click', function () { //버튼클릭
+        let wordText1 = word.textContent; //제시어
+        if (wordText1 == "") { //제시어가 비어있으면
+          if (inputValue.length === 3) { //입력값이 세글자면
+            word.textContent = inputValue;
+            $input.value = "";
+            $input.focus();
+          } else { //세글자가 아니면
+            alert('세글자가 아닙니다.')
+            //$input.value = "";
+            //location.reload();
+            idiot();
+          }
+        } else { //제시어가 있으면
+          let prevWord = word.textContent;
+          prevWordLast = (prevWord[prevWord.length - 1]);
+
+          if (prevWordLast == inputValue[0]) {//정답이면
+            if (inputValue.length === 3) { //입력값이 세글자면
+              //참가자 수 증가 1++
+              let playerCount = parseInt(order.textContent);
+              //console.log('playerCount : ' + playerCount);
+              if (playerCount < gamePlayer) {
+                order.textContent = playerCount + 1;
+                //console.log('playerCount : ' + playerCount)
+                //console.log('gamePlayer : ' + gamePlayer);
+              } else if (playerCount == gamePlayer) { // 마지막 사람 차레가 끝나고
+                playerCount = 1;
+                if (inputValue.length === 3) { //입력값이 세글자
+                  order.textContent = playerCount;
+                } else { //세글자가 아니면
+                  alert('세글자가 아닙니다.')
+                  //location.reload();
+                  idiot();
+                }
+              }
+              word.textContent = inputValue;
+              $input.value = "";
+              $input.focus();
+            } else { //세글자가 아니면
+              alert('세글자가 아닙니다.');
+              //$input.value = "";
+              $input.focus();
+              //location.reload();
+              idiot();
+
+            }
+            /* word.textContent = inputValue; */
+          } else {
+            alert('오답입니다.')
+            //location.reload();
+            idiot();
+          }
+
+        }
+      });// /inputBtn addEvent
+    };
+  </script>
+</head>
+
+<body>
+  <div class="start">
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어 : <span id="word"></span></div>
+    <input type="text">
+    <button type="button" id="inputBtn">입력</button>
+  </div>
+  <div class="end" style="display: none;">
+    <div style="display: flex; flex-direction: column; width: 100%; height: 100vh; justify-content: center; align-items: center;">
+      <div>게임을 시작하시려면 '게임시작' 버튼을 눌러주세요</div>
+      <button type="button" class="restart" style="margin-top: 20px; border: 2px solid #333; border-radius: 4px; font-size: 18px; background-color: #fff;">게임시작</button>
+    </div>
+  </div>
+  <div class="idiot" style="display: none;">
+    <div
+      style="display: flex; flex-direction: column; width: 100%; height: 100vh; justify-content: center; align-items: center;">
+      <div>탈락자는 <span id="idiot"></span>번입니다.</div>
+      <button type="button" class="load-page"
+        style="margin-top: 20px; border: 2px solid #333; border-radius: 4px; font-size: 18px; background-color: #fff;">게임시작</button>
+    </div>
+  </div>
+</body>
+
+</html>

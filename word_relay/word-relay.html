@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>word relay</title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    const number = Number(prompt('몇명이 참가하나요?'));
+    const $button = document.querySelector('button');
+    const $input = document.querySelector('input');
+    const $word = document.querySelector('#word');
+    const $order = document.querySelector('#order');
+    let word; //제시어
+    let newWord //입력값
+
+    const onClickButton = () => {
+      if (!word) { //제시어가 비어 있는가?
+        //비어있다.
+        word = newWord; //입력한 단어가 제시어가 된다.
+        $word.textContent = word;
+        $input.value = "";
+        const order = parseInt($order.textContent); //현재순서
+        if (order + 1 > number) {
+          $order.textContent = 1;
+        } else {
+          $order.textContent = order + 1;
+        }
+
+      } else {
+        //비어 있지 않다.
+        if (word[word.length - 1] === newWord[0]) { //올바른가
+          word = newWord; //입력한 단어가 제시어가 된다.
+          $word.textContent = word;
+          $input.value = "";
+          const order = parseInt($order.textContent); //현재순서
+          if (order + 1 > number) {
+            $order.textContent = 1;
+          } else {
+            $order.textContent = order + 1;
+          }
+        } else { // 올바르지 않은가
+          alert("올바르지 않은 단어입니다!");
+        }
+      }
+    };
+
+    const onInput = (event) => {
+      newWord = event.target.value;
+    }
+
+
+
+    1
+
+    /* //제이쿼리로 먼저 만들어보기
+    $(document).ready(function () {
+
+      const playerCount = Number(prompt("게임 참여자 수를 입력하세요") - 1);
+      $('input').focus();
+      $('input').on('input', function (e) {
+        inputValue = this.value;
+      });
+
+      function correct() { //true
+        alert('정답');
+        $('input[type=\'text\']').focus();
+        $('#word').text(inputValue);
+        $('input[type=\'text\']').val("");
+        if (playerTurn <= playerCount) {
+          $('#order').text(Number(playerTurn) + 1);
+        } else {
+          $('#order').text(1);
+        };
+      }
+
+      function incorrect() { //false
+        alert('오답! 게임종료');
+        $('input[type=\'text\']').focus();
+        location.reload();
+      }
+
+      $('button').on('click', function () { //입력버튼 클릭
+        playerTurn = $('#order').text();
+        if ($('#word').text() == "") {
+          $('#word').text(inputValue);
+        } else {
+          wordTxt = $('#word').text();
+          wordTxtLast = wordTxt[wordTxt.length - 1];
+          inputValueFirst = inputValue.slice(0, 1);
+          wordTxtLast == inputValueFirst ? correct() : incorrect();
+        }
+      });
+    }); */
+  </script>
+</head>
+
+<body>
+  <div><span id="order">1</span>번째 참가자</div>
+  <div>제시어 : <span id="word"></span></div>
+  <input type="text">
+  <button type="button">입력</button>
+
+</body>
+
+</html>
