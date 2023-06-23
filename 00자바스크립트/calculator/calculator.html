@@ -13,6 +13,7 @@
 <body>
   <div class="calculator-wrap">
     <div id="calculator">
+      <h1>노유민 계산기</h1>
       <div class="output">
         <div class="procedure">
           <span id="firstNum"></span>
@@ -23,22 +24,22 @@
       </div>
       <div class="button-wrap">
         <div class="row">
-          <button class="reset" id="btnC">C</button>
-          <button class="cal divide" id="btn/">/</button>
-          <button class="cal multiply" id="btnx">x</button>
-          <button class="del" id="btn-">&#8249;-</button>
+          <button class="reset" id="reset">C</button>
+          <button class="cal divide" id="divide">/</button>
+          <button class="cal multiply" id="multiply">x</button>
+          <button class="del" id="del">&#8249;-</button>
         </div>
         <div class="row">
           <button class="num" id="btn7">7</button>
           <button class="num" id="btn8">8</button>
           <button class="num" id="btn9">9</button>
-          <button class="cal plus" id="btn+">+</button>
+          <button class="cal plus" id="plus">+</button>
         </div>
         <div class="row">
           <button class="num" id="btn4">4</button>
           <button class="num" id="btn5">5</button>
           <button class="num" id="btn6">6</button>
-          <button class="cal minus" id="btn-">-</button>
+          <button class="cal minus" id="minus">-</button>
         </div>
         <div class="row">
           <button class="num" id="btn1">1</button>
@@ -47,14 +48,17 @@
         </div>
         <div class="row" style="position: relative;">
           <button class="num" id="btn0" style="width: 50%;">0</button>
-          <button class="num" id="btn." style="font-size: 20px;">.</button>
-          <button class="eq" id="btn=" style="height: 80px; position: absolute; right: 0; top: -40px;">=</button>
+          <button class="num" id="dot" style="font-size: 20px;">.</button>
+          <button class="eq" id="eq" style="height: 80px; position: absolute; right: 0; top: -40px;">=</button>
         </div>
       </div>
     </div>
     <br>
     <div class="history-wrap">
-      <button type="button" id="historyBtn" class="active">hide</button>
+      <div class="history-tit" style="margin-bottom: 10px;">
+        <span style="margin-right: 10px; font-weight: bold;">History</span>
+        <button type="button" id="historyBtn" class="active">hide</button>
+      </div>
       <div class="history-box">
         <div class="history"></div>
       </div>
