@@ -1,9 +1,5 @@
-/* 키보드 이벤트 */
-
-window.addEventListener("keydown", (e) => {
-  console.log(e);
+window.addEventListener("keydown", (e) => { //키보드 이벤트
   const key = e.key;
-  console.log(key)
   let keyId =""
   switch (key) {
     case "+":
@@ -30,25 +26,24 @@ window.addEventListener("keydown", (e) => {
     case "Backspace":
       keyId = "#del";
       break;
-    default: //변수 != 상수1 이고, 변수 != 상수2 이면, 실행문 C 실행
+    default: //숫자들
       keyId = `#btn${key}`;
   }
 
-
-//keyId = `#btn${key}`;
   const keyElement = document.querySelector(keyId);
-
-  //reset divide multiply del plus minus dot eq
-
   if (keyElement) {
-    // keyElement를 클릭하도록 강제로 이벤트를 발생시킴
     const clickEvent = new MouseEvent("click", {
       bubbles: true,
       cancelable: true,
       view: window,
     });
+
     keyElement.dispatchEvent(clickEvent);
   }
+
+
+  
+
 });
 
 window.onload = function () {
@@ -70,18 +65,20 @@ window.onload = function () {
   cal.forEach((clickCal) => {
     // 계산기 기호 클릭
     clickCal.addEventListener("click", function (e) {
-      if (funcResult) {
-        numValue1 = funcResult;
-        firstNum.textContent = numValue1;
+      if (!numValue1 && !numValue2 && !funcResult) {
+        return false;
+      } else {
+        if (funcResult) {
+          numValue1 = funcResult;
+          firstNum.textContent = numValue1;
+        }
+        calValue = e.target.innerText;
+        //console.log(calValue);
+        symbol.textContent = calValue;
+
+        procedure.style.display = "block";
+        resultBox.style.display = "none";
       }
-
-      calValue = e.target.innerText;
-      //console.log(calValue);
-      symbol.textContent = calValue;
-
-
-      procedure.style.display = "block";
-      resultBox.style.display = "none";
     });
   });
 
@@ -141,11 +138,11 @@ window.onload = function () {
       let resultHistory = document.createElement("div");
       resultHistory.append(
         `${resultCount}. ` +
-          firstNum.textContent +
-          symbol.textContent +
-          lastNum.textContent +
-          "=" +
-          result.textContent
+        firstNum.textContent +
+        symbol.textContent +
+        lastNum.textContent +
+        "=" +
+        result.textContent
       );
       resultCount++;
       console.log(resultHistory);
@@ -179,8 +176,7 @@ window.onload = function () {
   });
 };
 
-
-$(document).ready(() => {
+$(document).ready(() => { // jQuery
   $("#historyBtn").on('click', (e) => {
     $("#historyBtn").toggleClass("active");
     $(".history-box").toggle();
