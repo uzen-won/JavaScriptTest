@@ -14,10 +14,18 @@
   <button id="desBtn">설명</button>
   <div class="des" style="display: none;">
     <ul>
-      <li>랜덤한 숫자 4자리가 정해져 있습니다.</li>
+      <li>서로 겹치지않는 0-9인 숫자 4자리가 정해져 있습니다.</li>
+      <li>숫자는 매번 랜덤으로 결정됩니다.</li>
       <li>10번의 시도 안에 정답을 맞추면 이깁니다.</li>
+      <li style="color: blue; font-weight: 600;">자리수는 일치하지 않지만 숫자가 포함되어 있으면 B</li>
+      <li style="color: blue; font-weight: 600;">자리수까지 일치하면 S</li>
+      <li style="color: blue; font-weight: 600;">5678을 입력하면 OUT 입니다.</li>
       <li>입력한 숫자가 전부 일치하지 않으면 OUT 됩니다.</li>
+      <li>ex) 답이 1234였을때 4321을 입력하면 4B,</li>
+      <li>1256을 입력하면 2S 2B,</li>
+      
       <li>3아웃을 당하거나 10번의 시도 안에 정답을 맞추지 못하면 패배합니다.</li>
+      
     </ul>
   </div>
   <div id="game">
