@@ -1,0 +1,32 @@
+<html>
+<head lang="ko">
+  <meta charset="utf-8">
+  <title>숫자야구</title>
+  <link rel="stylesheet" href="baseball.css">
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="baseball.js"></script>
+</head>
+
+<body>
+  <h1>숫자야구게임</h1>
+  <button id="desBtn">설명</button>
+  <div class="des" style="display: none;">
+    <ul>
+      <li>랜덤한 숫자 4자리가 정해져 있습니다.</li>
+      <li>10번의 시도 안에 정답을 맞추면 이깁니다.</li>
+      <li>입력한 숫자가 전부 일치하지 않으면 OUT 됩니다.</li>
+      <li>3아웃을 당하거나 10번의 시도 안에 정답을 맞추지 못하면 패배합니다.</li>
+    </ul>
+  </div>
+  <div id="game">
+    <p class="try-count">횟수 : <span id="tryCount">0</span></p>
+    <form id="form">
+      <input type="text" id="input" autocomplete="off">
+      <button>확인</button>
+    </form>
+  </div>
+  <div id="logs"></div>
+  <button id="reStart">다시시작</button>
+</body>
+
+</html>

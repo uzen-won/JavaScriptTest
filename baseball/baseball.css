@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+* { margin: 0; padding: 0; } 
+ ul , ol { list-style: none; } 
+ body { margin: 5.5556vw; } 
+ h1 { font-size: 9.4444vw; font-weight: bold; color: #666; margin-bottom: 3.3333vw; } 
+ .des { margin-bottom: 3.3333vw; } 
+ .des ul li { font-size: 3.8889vw; position: relative; padding-left: 2.7778vw; } 
+ .des ul li::before { content: "-"; display: block; position: absolute; left: 0; top: 0; } 
+ form { display: flex; align-items: center; padding-bottom: 3.3333vw; } 
+ button { padding: 2.7778vw 5.5556vw; font-size: 5.5556vw; } 
+ #desBtn { margin-bottom: 3.3333vw; } 
+ input { width: 55.5556vw; height: 12.2222vw; line-height: 12.2222vw; margin-right: 2.7778vw; font-size: 6.6667vw; box-sizing: border-box; padding: 0 2.7778vw; } 
+ #game .try-count { font-size: 8.3333vw; margin-bottom: 3.3333vw; } 
+ #game .try-count span { font-size: inherit; } 
+ #logs { font-size: 8.3333vw; margin-bottom: 3.3333vw; } 
+ #logs p { margin: 0.2778vw 0; } 
+ .ball { color: green; font-weight: bold; } 
+ .strike { color: yellow; font-weight: bold; text-shadow: 0 0 0.5556vw #000; } 
+ .out { color: red; font-weight: bold; } 
+ .out-circle { width: 5.5556vw; height: 5.5556vw; border-radius: 27.7778vw; background-color: red; display: inline-block; } 
