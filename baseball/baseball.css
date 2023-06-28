@@ -1,8 +1,25 @@
 @charset 'utf-8';
-
 * { margin: 0; padding: 0; } 
+ body { margin: 20px; } 
  ul , ol { list-style: none; } 
- body { margin: 5.5556vw; } 
+ h1 { font-size: 30px; font-weight: bold; color: #666; margin-bottom: 10px; } 
+.des p { font-size: 20px; } 
+.des ul li { position: relative; padding-left: 10px; } 
+.des ul li::before { content: "-"; display: block; position: absolute; left: 0; top: 0; } 
+form { display: flex; align-items: center; margin-bottom: 20px; } 
+button { padding: 10px 20px; font-size: 20px } 
+#desBtn { margin-bottom: 10px; } 
+ input { height: 50px; line-height: 50px; margin-right: 10px; padding-left: 10px; font-size: 20px; width: 140px; box-sizing: border-box; } 
+ #game .try-count { font-size: 20px; margin-bottom: 10px; } 
+ #game .try-count span { font-size: inherit; } 
+ #logs { font-size: 30px; margin-bottom: 20px; } 
+ #logs p { margin: 1px 0; } 
+ .ball { color: green; font-weight: bold; } 
+ .strike { color: yellow; font-weight: bold; text-shadow: 0 0 2px #000; } 
+ .out { color: red; font-weight: bold; } 
+ .out-circle { width: 20px; height: 20px; border-radius: 100px; background-color: red; display: inline-block; } 
+
+ @media all and (max-width: 500px) { body { margin: 5.5556vw; } 
  h1 { font-size: 9.4444vw; font-weight: bold; color: #666; margin-bottom: 3.3333vw; } 
  .des { margin-bottom: 3.3333vw; } 
  .des ul li { font-size: 3.8889vw; position: relative; padding-left: 2.7778vw; } 
@@ -19,3 +36,4 @@
  .strike { color: yellow; font-weight: bold; text-shadow: 0 0 0.5556vw #000; } 
  .out { color: red; font-weight: bold; } 
  .out-circle { width: 5.5556vw; height: 5.5556vw; border-radius: 27.7778vw; background-color: red; display: inline-block; } 
+}
