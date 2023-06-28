@@ -102,12 +102,13 @@ window.onload = () => {
   });
 };
 
-/* reStart.addEventListener("click", () => {
-  let a = confirm("게임을 다시 시작하시겠습니까?");
+reStart.addEventListener("click", () => {
+  let r = confirm("게임을 다시 시작하시겠습니까?");
   //location.reload()
-  a == true ? location.reload() : null;
-}); */
+  r == true ? location.reload() : none;
+});
 
+//jQuery
 $(document).ready(() => {
   $("#desBtn").on("click", function () {
     $(".des").toggle();
