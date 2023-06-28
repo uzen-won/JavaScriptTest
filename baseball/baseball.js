@@ -100,13 +100,14 @@ window.onload = () => {
     alert(`실패 정답은 ${targetNum}`);
     location.reload();
   });
+  reStart.addEventListener("click", () => {
+    let r = confirm("게임을 다시 시작하시겠습니까?");
+    //location.reload()
+    r == true ? location.reload() : none;
+  });
 };
 
-reStart.addEventListener("click", () => {
-  let r = confirm("게임을 다시 시작하시겠습니까?");
-  //location.reload()
-  r == true ? location.reload() : none;
-});
+
 
 //jQuery
 $(document).ready(() => {
