@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOTTO</title>
+  <style>
+    .ball {
+      display: inline-block;
+      border-radius: 20px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      text-align: center;
+      margin-right: 20px;
+      text-shadow: 1px 1px 1px #FFF, -1px -1px 1px #FFF,-1px 1px 1px #FFF,1px -1px 1px #FFF;
+      box-shadow: 0px 0px 4px 1px #ccc;
+    }
+    .b1 {background-color:tomato;}
+    .b2 {background-color: lightsalmon;}
+    .b3 {background-color: lightgoldenrodyellow;}
+    .b4 {background-color: lightgreen;}
+    .b5 {background-color: lightskyblue;}
+    .b6 {background-color:slateblue}
+    .b7 {background-color: mediumorchid;}
+  </style>
+</head>
+
+<body>
+  <div id="result">추첨 결과는? </div>
+  <div id="bonus">보너스: </div>
+  <script>
+    let result = document.querySelector('#result');
+    let bonus = document.querySelector('#bonus');
+    let createNum = Array(45).fill().map((v, i) => i + 1);
+    console.log(createNum);
+    let randomNum = [];
+
+    for (i = createNum.length; i > 0; i--) {
+      let n = Math.floor(Math.random() * i);
+      //console.log(n);
+      let spliceCreateNum = createNum.splice(n, 1);
+      console.log('spliceCreateNum : ' + spliceCreateNum);
+      console.log('createNum : ' + createNum);
+      console.log(spliceCreateNum);
+      let pushNum = spliceCreateNum[0];
+      randomNum.push(pushNum);
+    };
+
+    //로또번호
+    console.log(randomNum);
+    let lottoNum = randomNum.slice(0, 7); //당첨 숫자 6개
+    console.log(lottoNum);
+    let lottoNumBonus = lottoNum[lottoNum.length-1]; //보너스 숫자
+    console.log(lottoNumBonus);
+
+    for(let i = 0; i < lottoNum.length-1; i++){ //1등숫자
+      setTimeout(() => {
+        result.innerHTML += `<span class=\'ball\ b${i+1}'>${lottoNum[i]}</span>`;
+      }, (i + 1) * 1400);
+    }
+    setTimeout(() => { //보너스 숫자
+        bonus.innerHTML += `<span class=\'ball\ b${lottoNum.length}'>${lottoNumBonus}</span>`;
+      }, lottoNum.length * 1400);
+      
+  </script>
+</body>
+
+</html>
