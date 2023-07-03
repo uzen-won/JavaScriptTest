@@ -9,4 +9,5 @@ JavaScriptTest
 <br>
 <h2>로또</h2>
 <p>https://uzen-won.github.io/JavaScriptTest/lotto/lotto.html</p>
-
+<h2>네이버</h2>
+<p>https://uzen-won.github.io/JavaScriptTest/naver/main.html</p>
