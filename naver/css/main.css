@@ -74,7 +74,6 @@ li .h-na { background-position: -3px -165px; }
  margin: 0 auto; } 
 .flexible-area .con-box-wrap { display: flex; flex-wrap: wrap; width: 100%; } 
 .flexible-area .con-box-wrap .contents-box { background-color: white; width: 100%; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 1px 4px 0 rgba(0,0,0,.06); box-sizing: border-box; flex-shrink: 0; } 
-#home .flexible-area .con-box-wrap .weather { height: 150px; } 
 #home .weather .weather-top { display: flex; align-items: center; justify-content: space-between; height: 80px; padding: 0 20px; } 
 #home .weather .weather-top .slide { display: flex; align-items: center; height: 70px; } 
 #home .weather .weather-top .slide a { display: flex; align-items: center; } 
