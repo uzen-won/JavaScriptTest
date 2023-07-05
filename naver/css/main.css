@@ -73,14 +73,14 @@ li .h-na { background-position: -3px -165px; }
 .flexible-area { max-width: 1200px; width: 80%; /* outline: 1px solid red; */
  margin: 0 auto; } 
 .flexible-area .con-box-wrap { display: flex; flex-wrap: wrap; width: 100%; } 
-.flexible-area .con-box-wrap .contents-box { background-color: white; width: 100%; margin-bottom: 4px; border-radius: 8px; box-shadow: 0 1px 4px 0 rgba(0,0,0,.06); box-sizing: border-box; flex-shrink: 0; } 
+.flexible-area .con-box-wrap .contents-box { background-color: white; width: 100%; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 1px 4px 0 rgba(0,0,0,.06); box-sizing: border-box; flex-shrink: 0; } 
 #home .flexible-area .con-box-wrap .weather { height: 150px; } 
 #home .weather .weather-top { display: flex; align-items: center; justify-content: space-between; height: 80px; padding: 0 20px; } 
 #home .weather .weather-top .slide { display: flex; align-items: center; height: 70px; } 
 #home .weather .weather-top .slide a { display: flex; align-items: center; } 
 #home .weather .weather-top .slide .ico-box { width: 44px; height: 44px; margin-right: 10px; background-image: url(../images/sp_icon_weather.png); background-size: 300px; background-repeat: no-repeat; background-position: -86px -172px; flex-shrink: 0; } 
 #home .weather .weather-top .slide .weather-des-wrap { display: flex; flex-flow: column; flex-shrink: 1; } 
-#home .weather .weather-top .slide .weather-des-wrap >div { display: flex;/* overflow: hidden; */ } 
+#home .weather .weather-top .slide .weather-des-wrap >div { display: flex; /* overflow: hidden; */ } 
 #home .weather .weather-top .slide .weather-des-wrap span:first-child { flex-shrink: 0; } 
 #home .weather .weather-top .slide .weather-des-wrap span:last-child { flex-shrink: 1; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; } 
 #home .weather .weather-top .slide .weather-des-wrap span { font-size: 14px; } 
@@ -89,18 +89,10 @@ li .h-na { background-position: -3px -165px; }
 #home .weather .weather-top .slide .weather-des-wrap .good { color:#00a8ff; } 
 #home .weather .weather-top .location { flex-shrink: 1; } 
 #home .weather .weather-top .location button { display: flex; position: relative; border: none; background-color: transparent; padding-right: 22px; } 
-#home .weather .weather-top .location button span { 
-  color: #666; 
-  white-space: nowrap; 
-  text-overflow: ellipsis; 
-  overflow: hidden;
-  flex-shrink: 1;
-  display: block;
-  -webkit-box-flex: flex;
-} 
+#home .weather .weather-top .location button span { color: #666; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; flex-shrink: 1; display: block; -webkit-box-flex: flex; } 
 #home .weather .weather-top .location button::after { display: block; content: ""; position: absolute; width: 20px; height: 20px; top: 0; right: 0; background-image: url(../images/sp_search.png); background-repeat: no-repeat; background-size: 440px; background-position: -211px -195px; } 
-#home .weather .weather-bottom { padding-top: 2px; height: 70px; text-align: center; } 
-#home .weather .weather-bottom p { font-size: 14px; color: #666; } 
+#home .weather .weather-bottom { height: 70px; text-align: center; padding: 2px 16px 0; } 
+#home .weather .weather-bottom p { font-size: 14px; color: #666; word-break:keep-all; } 
 
 
 #home .con-now { padding: 16px } 
@@ -152,10 +144,18 @@ li .h-na { background-position: -3px -165px; }
 #home .shopping-live .shopping-list.l1 a .txt .shop::before { background-image: url(../images/shopping_thumb01-1.jpg); } 
 #home .shopping-live .shopping-list.l2 a .txt .shop::before { background-image: url(../images/shopping_thumb02-1.jpg); } 
 #home .shopping-live .shopping-list.l3 a .txt .shop::before { background-image: url(../images/shopping_thumb03-1.jpg); } #home .shopping-live .shopping-list.l4 a .txt .shop::before { background-image: url(../images/shopping_thumb04-1.png); } 
-
- #home .shopping-live .shopping-list .alarm { flex-shrink: 0; width: 28px; height: 28px; outline: 1px solid red; border-radius: 100px; } 
+#home .shopping-live .shopping-list .alarm { flex-shrink: 0; width: 28px; height: 28px; outline: 1px solid red; border-radius: 100px; } 
  #home .shopping-live .shopping-list .alarm button { display: block; width: 100%; height: 100%; position: relative; background-color: transparent; border: none; font-size: 0; } 
  #home .shopping-live .shopping-list .alarm button::after { width: 20px; height: 20px; content: ""; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-image: url(../images/sp_search.png); background-repeat: no-repeat; background-size: 440px; background-position: -418px -293px; } 
+ #home .shopping-live .button-wrap { } 
+ #home .shopping-live .button-wrap a { display: block; background-color: #f5f8fb; border-radius: 100px; text-align: center; padding: 10px 0; } 
+#home .shopping-live .button-wrap a span { position: relative; color: #333; font-size: 14px; padding-left: 24px; line-height: 18px; font-weight: 500; } 
+ #home .shopping-live .button-wrap a span::before { content: ""; display: block; position: absolute; width: 18px; height: 18px; outline: 1px solid red; left: 0; top: 0; background-image: url(../images/link_btn_thumb01.jpg); background-size: 18px; background-repeat: no-repeat; border-radius: 100px } 
+ #home .middle-banner { position: relative; } 
+ #home .middle-banner a { display: block; padding-right: 20px; } 
+ #home .middle-banner a img { display: block; width: 100%; } 
+#home .middle-banner .delete-btn { border: none; background-color: transparent; position: absolute; top: 50%; right: 10px; transform: translateY(-50%); width: 5vw; height: 5vw; font-size: 0; background-image: url(../images/sp_search.png); background-repeat: no-repeat; background-size: 360px; background-position: -127px -263px; } 
+
 
 
 
