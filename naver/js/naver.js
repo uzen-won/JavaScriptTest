@@ -5,7 +5,7 @@ $(document).ready(() => {
     if (scrollTop === 0) {
       $(".weather .weather-bottom").hide();
       $(".flexible-area").css({
-        width:'80%',
+        width:'90%',
       });
 
     } else { 
