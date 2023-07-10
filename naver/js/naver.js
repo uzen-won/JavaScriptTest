@@ -5,16 +5,14 @@ $(document).ready(() => {
     if (scrollTop === 0) {
       $(".weather .weather-bottom").hide();
       $(".flexible-area").css({
-        width:'90%',
+        //width:'90%',
       });
-
-    } else { 
+    } else {
       $(".weather .weather-bottom").show();
-      $(".flexible-area").css({
-        width: "100%",
-      });
+      /* $(".flexible-area").css({
+        //width: "100%",
+      }); */
     }
-
 
     if (scrollTop > 200) {
       $("#formSearch").addClass("search-fix");
@@ -26,19 +24,20 @@ $(document).ready(() => {
         $(".search-history").show();
       });
     } else {
-      $(".slide-tab").slideUp(200);
+      $(".slide-tab").slideUp(0);
       $("#formSearch").removeClass("search-fix");
     }
-
-    
   });
 
   $(".history-opt #his-close").on("click", function () {
     scrollTop = $(window).scrollTop();
     if (scrollTop > 200) {
-      
       $(".slide-tab").show();
     }
     $(".search-history").hide();
   });
+
+  
 });
+
+
