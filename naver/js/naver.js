@@ -1,43 +1,47 @@
-$(document).ready(() => {
-  $(window).scroll(function () {
-    scrollTop = $(window).scrollTop();
-    console.log("scrollTop : " + scrollTop);
-    if (scrollTop === 0) {
-      $(".weather .weather-bottom").hide();
-      $(".flexible-area").css({
-        //width:'90%',
+let homeNewWrapper = document.querySelector(".today-news .swiper-wrapper");
+let homeNewSlide = document.querySelectorAll(".today-news .swiper-wrapper .swiper-slide");
+let weatherBottom = document.querySelector(".weather .weather-bottom");
+let flexibleArea = document.querySelector(".flexible-area");
+let formSearch = document.querySelector("#formSearch");
+let slideTab = document.querySelector(".slide-tab");
+let icoLink = document.querySelector(".ico-link"); 
+let icoLinkTop = icoLink.getBoundingClientRect().top;
+let greenDot = document.querySelector(".green-dot");
+
+//_.throttle;
+window.addEventListener(
+  "scroll",
+  _.throttle(function () {
+    let winScrollY = parseInt(window.scrollY);
+    console.log(`winScrollY : ${winScrollY}`);
+    
+    if (winScrollY > icoLinkTop) {
+      formSearch.className = "search-fix";
+      icoLink.style.paddingTop = '70px';
+      gsap.to(slideTab, {
+        display: "block",
+        opacity: 1,
+      })
+      //gsap.to(greenDot, {});
+
+    } else { 
+      formSearch.classList.remove("search-fix");
+      icoLink.style.paddingTop = "0";
+      gsap.to(slideTab,{
+        display: "none",
+        opacity: 0,
       });
-    } else {
-      $(".weather .weather-bottom").show();
-      /* $(".flexible-area").css({
-        //width: "100%",
-      }); */
+
     }
 
-    if (scrollTop > 200) {
-      $("#formSearch").addClass("search-fix");
-      $("#formSearch").show(200, function () {
-        $(".slide-tab").slideDown(200);
-      });
-      $(".search-fix .search-box .search").on("click", () => {
-        $(".slide-tab").hide();
-        $(".search-history").show();
-      });
-    } else {
-      $(".slide-tab").slideUp(0);
-      $("#formSearch").removeClass("search-fix");
-    }
-  });
-
-  $(".history-opt #his-close").on("click", function () {
-    scrollTop = $(window).scrollTop();
-    if (scrollTop > 200) {
-      $(".slide-tab").show();
-    }
-    $(".search-history").hide();
-  });
-
-  
-});
 
 
+  },100)
+);
+    
+
+let homeNewSlideLength = homeNewSlide.length;
+homeNewWrapper.style.width = homeNewSlideLength * 100;
+
+let pgFontDown = document.querySelector("footer .foot-top button#pgFontDown");
+let pgFontUp = document.querySelector("footer .foot-top button#pgFontUp");

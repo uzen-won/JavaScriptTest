@@ -5,6 +5,9 @@
 
 body { background-color: #f4f6f8; } 
 button { cursor: pointer; } 
+.font-bold {
+  font-weight: bold;
+}
 /* */
 /* ***********header***************** */
 header { position: relative; background-image: url(../images/header_bg01.gif); background-position: center -134px; background-size: auto 280px; background-repeat: no-repeat; } 
@@ -39,7 +42,7 @@ li .h-na { background-position: -3px -165px; }
 .h-bottom .search-history .history-opt > div { display: flex; } 
 .h-bottom .history-opt-left button:not(:first-of-type)::after { display: block; content: ""; background-color: #ccc; width: 1px; height: 16px; position: absolute; top: 50%; left: 0; transform: translateY(-50%); } 
 .h-bottom .search-history .history-opt div button { position: relative; background-color: transparent; border: none; height: 44px; line-height: 44px; font-size: 16px; color: #999; padding: 0 4px; } 
-.slide-tab { position: fixed; top: 60px; left: 0; width: 100%; height: 60px; z-index: 1; } 
+.slide-tab { position: fixed; top: 60px; left: 0; width: 100%; height: 60px; z-index: 99; } 
 .slide-tab { background-image: linear-gradient(to right,#09c665,#07bb7b); } 
 .slide-tab .slide-show { overflow: auto; width: 100%; height: 100%; } 
 .slide-tab .slide-show::-webkit-scrollbar { display: none; } 
@@ -245,53 +248,307 @@ li .h-na { background-position: -3px -165px; }
 }
 
 
-#home .today-naver {
+#home .today-news {
   background-color: transparent!important; box-shadow: none!important;
 }
-#home .today-naver .tit-wrap {
+#home .today-news .tit-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
 }
-#home .today-naver .tit-wrap h3{
+#home .today-news .tit-wrap h3{
   font-size: 18px;
 }
-#home .today-naver .tit-wrap button{
+#home .today-news .tit-wrap button{
   border: none;
   background-color: transparent;
   color: #999;
   display: flex;
   align-items: center;
 }
-#home .today-naver .tit-wrap button span {
+#home .today-news .tit-wrap button span {
   font-size: 16px;
 }
-#home .today-naver .swiper {
+#home .today-news .swiper {
   width: 100%;
+  padding-bottom: 36px;
 }
-#home .today-naver .swiper-wrapper {
+#home .today-news .swiper-wrapper {
   display: flex;
-  width: 400%;
 }
-#home .today-naver .swiper-slide {
+#home .today-news .swiper-slide {
   border-radius: 8px;
-  overflow: hidden;
   width: 25%;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.06);
 }
-#home .today-naver .swiper-slide a {
+#home .today-news .swiper-slide a {
   display: block;
   width: 100%;
 }
-#home .today-naver .swiper-slide .img-wrap {
+#home .today-news .swiper-slide .slide-top .img-wrap {
   width: 100%;
 }
-#home .today-naver .swiper-slide .img-wrap img {
+#home .today-news .swiper-slide .slide-top .img-wrap img {
   display: block;
   width: 100%;
 }
+#home .today-news .swiper-slide .slide-bottom {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+#home .today-news .swiper-slide .slide-bottom .img-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+#home .today-news .swiper-slide .slide-bottom .img-box img {
+  width: 100%;
+  display: block;
+}
+#home .today-news .swiper-slide .slide-bottom .txt {
+  display: flex;
+  flex-direction: column;
+}
+#home .today-news .swiper-slide .slide-bottom .txt strong {
+  font-weight: 400;
+  font-size: 18px;
+  color: #333;
+}
+#home .today-news .swiper-slide .slide-bottom .txt span {
+  font-size: 13px;
+  color: #666;
+}
+
+/* green-dot */
+.green-dot {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 16px;
+  border-radius: 1000px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.17);
+}
+.green-dot button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  background-image: url(../images/bg_greendot_icon_animation.png);
+  background-repeat: no-repeat;
+  background-size: 88%;
+  background-position: center;
+  font-size: 0;
+}
+
+/* green-dot popup */
+.green-dot-pop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,.7);
+}
+.green-dot-pop .circle-area {
+  width: 360px;
+  height: 360px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  border-radius: 1000px;
+}
+.green-dot-pop .circle-area .circle-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.green-dot-pop .circle-area .circle-inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/bg_greendot_wheel.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+.green-dot-pop .circle-menu {}
+.green-dot-pop .circle-menu li {
+  width: 63px;
+  outline: 1px solid red;
+  background-color: #fff;
+}
+.green-dot-pop .circle-menu li .ico-box {
+  padding-top: 6px;
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+.green-dot-pop .circle-menu li .ico-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/sp_greendot.png);
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+.green-dot-pop .circle-menu li.m1 .ico-box::after {
+  background-position: 3px -242px;
+}
+.green-dot-pop .circle-menu li.m2 .ico-box::after {
+  background-position: -38px -242px;
+}
+.green-dot-pop .circle-menu li.m3 .ico-box::after {
+  background-position: -212px -141px;
+}
+.green-dot-pop .circle-menu li.m4 .ico-box::after {
+  background-position: -212px -96px;
+}
+.green-dot-pop .circle-menu li.m5 .ico-box::after {
+  background-position: -212px -51px;
+}
+.green-dot-pop .circle-menu li.m6 .ico-box::after {
+  background-position: 3px -196px;
+}
+.green-dot-pop .circle-menu li.m7 .ico-box::after {
+  background-position: -78px -196px;
+}
+.green-dot-pop .circle-menu li.m8 .ico-box::after {
+  background-position: -159px -196px;
+}
+.green-dot-pop .circle-menu li .txt {
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+  padding-bottom: 4px;
+}
 
 
+
+/* footer */
+footer {
+  width: 100%;
+}
+footer .inner {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+footer button {
+  padding: 0 8px;
+  border: 1px solid #e2e6e9;
+  background-color: #fff;
+  height: 36px;
+}
+footer .foot-top {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e6e9;
+}
+footer .foot-top .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .foot-top .ft-left{
+  display: flex;
+}
+footer .foot-top .ft-left #pgFontDown {
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+}
+footer .foot-top .ft-left #pgFontUp {
+  border-radius: 0 6px 6px 0;
+}
+footer .foot-top .ft-right{}
+footer .foot-top .ft-right #toTop {
+  
+}
+footer .foot-top .ft-right #toTop span{
+  font-size: 20px;
+  margin-top: 4px;
+  color: #999;
+}
+footer .foot-bottom {
+  padding: 30px 0 80px;
+}
+footer .foot-bottom .fb-menu-wrap {
+  margin-bottom: 8px;
+}
+footer .foot-bottom ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .foot-bottom ul li a {
+  font-size: 13px;
+  color: #666;
+  display: block;
+  padding: 5px 8px;
+  position: relative;
+  line-height: 1;
+}
+footer .foot-bottom ul li:not(:last-child) a::after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 1px;
+  background-color: #999;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+footer .foot-bottom .foot-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .foot-bottom .foot-logo-wrap .foot-logo a{
+  display: block;
+  width: 80px;
+  height: 30px;
+  font-size: 0;
+  position: relative;
+}
+
+footer .foot-bottom .foot-logo-wrap .foot-logo a::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background: url(../images/sp_main.png) no-repeat;
+  background-size: 250px;
+  background-position: -47px -120px;
+}
 
 
 

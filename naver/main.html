@@ -13,8 +13,12 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
     integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="js/naver.js"></script>
+  <script defer src="js/naver.js"></script>
 </head>
 
 <body>
@@ -57,7 +61,7 @@
           </div>
         </div>
       </form>
-      <div class="slide-tab" style="display: none;">
+      <div class="slide-tab" style="display: none; opacity: 0;">
         <div class="slide-show">
           <ul class="slide-wrap">
             <li class="slide"><a href="#"><span>요즘여기</span></a></li>
@@ -139,7 +143,7 @@
     </div>
 
   </header>
-  <section style="height: 1500px;">
+  <section>
     <div class="event-banner">
       <a href="#">
         <img src="images/main_event_banner01.png" alt="">
@@ -610,87 +614,107 @@
               </div>
             </div>
           </div>
-          <div class="contents-box today-naver">
+          <div class="contents-box today-news">
             <div class="tit-wrap">
               <h3>오늘 네이버</h3>
               <button class="btn-more">더보기<span class="material-symbols-outlined">
-                navigate_next
-              </span></button>
+                  navigate_next
+                </span></button>
             </div>
-            <div class="swiper horizontal-swiper">
-              <ul class="swiper-wrapper">
-                <li class="swiper-slide">
-                  <a href="javascript:void(0)">
-                    <div class="img-wrap">
-                      <img src="images/today_naver_img01.png" alt="">
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <div class="img-box">
-                      <img src="images/today_naver_thumb01.png" alt="">
-                    </div>
-                    <div class="txt">
-                      <strong>네이버톡</strong>
-                      <span>관심사가 모이면 톡이 되니까!</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0)">
-                    <div class="img-wrap">
-                      <img src="images/today_naver_img02.jpg" alt="">
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <div class="img-box">
-                      <img src="images/today_naver_thumb02.png" alt="">
-                    </div>
-                    <div class="txt">
-                      <strong>네이버도착보장</strong>
-                      <span>무더위엔 곰탕이지! 네이버는 내일 도착</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0)">
-                    <div class="img-wrap">
-                      <img src="images/today_naver_img03.png" alt="">
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <div class="img-box">
-                      <img src="images/today_naver_thumb03.jpg" alt="">
-                    </div>
-                    <div class="txt">
-                      <strong>멤버십 이달의 쿠폰</strong>
-                      <span>시원한 할인 혜택 지금 받으세요!</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0)">
-                    <div class="img-wrap">
-                      <img src="images/today_naver_img04.jpg" alt="">
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <div class="img-box">
-                      <img src="images/today_naver_thumb04.jpg" alt="">
-                    </div>
-                    <div class="txt">
-                      <strong>NAVER CODE</strong>
-                      <span>네이버 사람들의 진솔한 일 이야기</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+            <div>
+              <div class="swiper horizontal-swiper">
+                <ul class="swiper-wrapper">
+                  <li class="swiper-slide">
+                    <a href="javascript:void(0)" class="slide-top">
+                      <div class="img-wrap">
+                        <img src="images/today_naver_img01.png" alt="">
+                      </div>
+                    </a>
+                    <a href="javascript:void(0)" class="slide-bottom">
+                      <div class="img-box">
+                        <img src="images/today_naver_thumb01.png" alt="">
+                      </div>
+                      <div class="txt">
+                        <strong>네이버톡</strong>
+                        <span>관심사가 모이면 톡이 되니까!</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="swiper-slide">
+                    <a href="javascript:void(0)" class="slide-top">
+                      <div class="img-wrap">
+                        <img src="images/today_naver_img02.jpg" alt="">
+                      </div>
+                    </a>
+                    <a href="javascript:void(0)" class="slide-bottom">
+                      <div class="img-box">
+                        <img src="images/today_naver_thumb02.png" alt="">
+                      </div>
+                      <div class="txt">
+                        <strong>네이버도착보장</strong>
+                        <span>무더위엔 곰탕이지! 네이버는 내일 도착</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="swiper-slide">
+                    <a href="javascript:void(0)" class="slide-top">
+                      <div class="img-wrap">
+                        <img src="images/today_naver_img03.png" alt="">
+                      </div>
+                    </a>
+                    <a href="javascript:void(0)" class="slide-bottom">
+                      <div class="img-box">
+                        <img src="images/today_naver_thumb03.jpg" alt="">
+                      </div>
+                      <div class="txt">
+                        <strong>멤버십 이달의 쿠폰</strong>
+                        <span>시원한 할인 혜택 지금 받으세요!</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="swiper-slide">
+                    <a href="javascript:void(0)" class="slide-top">
+                      <div class="img-wrap">
+                        <img src="images/today_naver_img04.jpg" alt="">
+                      </div>
+                    </a>
+                    <a href="javascript:void(0)" class="slide-bottom">
+                      <div class="img-box">
+                        <img src="images/today_naver_thumb04.jpg" alt="">
+                      </div>
+                      <div class="txt">
+                        <strong>NAVER CODE</strong>
+                        <span>네이버 사람들의 진솔한 일 이야기</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="swiper-slide">
+                    <a href="javascript:void(0)" class="slide-top">
+                      <div class="img-wrap">
+                        <img src="images/today_naver_img05.png" alt="">
+                      </div>
+                    </a>
+                    <a href="javascript:void(0)" class="slide-bottom">
+                      <div class="img-box">
+                        <img src="images/today_naver_thumb05.jpg" alt="">
+                      </div>
+                      <div class="txt">
+                        <strong>수익만큼 중요한 세금 관리!</strong>
+                        <span>크리에이터라면 꼭 알아두세요</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+              </div>
             </div>
             <script>
-               var swiper = new Swiper(".horizontal-swiper", {
-                  pagination: {
-                    el: ".swiper-pagination",
-                  },
-                });
+              var swiper = new Swiper(".horizontal-swiper", {
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+              });
             </script>
           </div>
           <div class="contents-box"></div>
@@ -704,12 +728,128 @@
     </div>
   </section>
   <aside class="green-dot">
-    <div class="dot-wrap">
-
-    </div>
+    <button type="button">그린닷</button>
   </aside>
+  <div class="layer-popup green-dot-pop" style="display: none;">
+    <div class="info-wrap">
+      <button type="button">info</button>
+    </div>
+    <div class="circle-area">
+      <div class="circle-inner">
+        <div class="circle-menu-wrap">
+          <ul class="circle-menu">
+            <li class="m1">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  음악
+                </div>
+              </a>
+            </li>
+            <li class="m2">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  렌즈
+                </div>
+              </a>
+            </li>
+            <li class="m3">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  QR바코드
+                </div>
+              </a>
+            </li>
+            <li class="m4">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  쇼핑렌즈
+                </div>
+              </a>
+            </li>
+            <li class="m5">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  파파고번역
+                </div>
+              </a>
+            </li>
+            <li class="m6">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  검색
+                </div>
+              </a>
+            </li>
+            <li class="m7">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  내주변
+                </div>
+              </a>
+            </li>
+            <li class="m8">
+              <a href="javascript:void(0)">
+                <div class="ico-box">
+                </div>
+                <div class="txt">
+                  음성
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <footer>
-
+    <div class="foot-top">
+      <div class="inner">
+        <div class="ft-left">
+          <button type="button" id="pgFontDown">가-</button>
+          <button type="button" id="pgFontUp">가+</button>
+        </div>
+        <div class="ft-right">
+          <button type="button" id="toTop"><span class="material-symbols-outlined">
+              vertical_align_top
+            </span></button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="inner">
+        <div class="fb-menu-wrap">
+          <ul class="fb-menu-top">
+            <li><a href="javascript:void(0)">로그인</a></li>
+            <li><a href="javascript:void(0)">전체서비스</a></li>
+            <li><a href="javascript:void(0)">PC버전</a></li>
+          </ul>
+          <ul class="fb-menu-bottom">
+            <li><a href="javascript:void(0)">이용약관</a></li>
+            <li><a href="javascript:void(0)" class="font-bold">개인정보처리방침</a></li>
+            <li><a href="javascript:void(0)">고객센터</a></li>
+          </ul>
+        </div>
+        <div class="foot-logo-wrap">
+          <h3 class="foot-logo">
+            <a href="javascript:void(0)">NAVER</a>
+          </h3>
+        </div>
+      </div>
+    </div>
   </footer>
 </body>
 
