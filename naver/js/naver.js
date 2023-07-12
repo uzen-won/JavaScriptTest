@@ -7,7 +7,11 @@ let slideTab = document.querySelector(".slide-tab");
 let icoLink = document.querySelector(".ico-link"); 
 let icoLinkTop = icoLink.getBoundingClientRect().top;
 let greenDot = document.querySelector(".green-dot");
-
+let greenDotBtn = document.querySelector(".green-dot button");
+let greenDotPop = document.querySelector(".green-dot-pop");
+let homeNewSlideLength = homeNewSlide.length;
+let pgFontDown = document.querySelector("footer .foot-top button#pgFontDown");
+let pgFontUp = document.querySelector("footer .foot-top button#pgFontUp");
 //_.throttle;
 window.addEventListener(
   "scroll",
@@ -22,7 +26,10 @@ window.addEventListener(
         display: "block",
         opacity: 1,
       })
-      //gsap.to(greenDot, {});
+      gsap.to(greenDot, {
+        display: "none",
+        opacity: 0,
+      });
 
     } else { 
       formSearch.classList.remove("search-fix");
@@ -30,6 +37,10 @@ window.addEventListener(
       gsap.to(slideTab,{
         display: "none",
         opacity: 0,
+      });
+      gsap.to(greenDot,{
+        display: "block",
+        opacity: 1,
       });
 
     }
@@ -39,9 +50,17 @@ window.addEventListener(
   },100)
 );
     
-
-let homeNewSlideLength = homeNewSlide.length;
 homeNewWrapper.style.width = homeNewSlideLength * 100;
 
-let pgFontDown = document.querySelector("footer .foot-top button#pgFontDown");
-let pgFontUp = document.querySelector("footer .foot-top button#pgFontUp");
+greenDotBtn.addEventListener('click', () => { 
+  greenDotPop.style.display = "block";
+  greenDotPop.style.opacity = "1";
+});
+greenDotPop.addEventListener('click', () => { 
+  greenDotPop.style.display = "none";
+  greenDotPop.style.opacity = "0";
+});
+
+
+
+
